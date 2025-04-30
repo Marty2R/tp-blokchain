@@ -1,0 +1,22 @@
+{
+  "name": "blokchain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "start": "node src/index.js",
+  "dev": "nodemon src/index.js",
+  "test": "jest --watchAll"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "express": "^5.1.0"
+  }
+}
