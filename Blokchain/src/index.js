@@ -21,3 +21,16 @@ app.post('/mine', (req, res) => {
 // Port
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+
+const P2PServer = require('./p2p-server');
+const p2pServer = new P2PServer(blockchain);
+p2pServer.listen();
+
+// Après minage, synchronise
+app.post('/mine', (req, res) => {
+    const { data } = req.body;
+    const block = blockchain.addBlock(data);
+    p2pServer.syncChains();  // ← ici
+    res.json({ message: 'New block mined', block });
+});
